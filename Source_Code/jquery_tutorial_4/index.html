@@ -6,14 +6,15 @@
     <div>
       <p>This is a sentence</p>
       <p class="super"> Here's another one </p>
-      <h4 class="super"> Don't forget this one! </h4>
+      <h4 id="super"> Don't forget this one! </h4>
     </div>
 
     <script src="js/jquery-3.1.1.min.js"></script>
 
     <script>
 
-      $("p").hide();
+      $('.super,#super').addClass('timestwo colorful');// we can add as many class as we want by seperating space
+      $('.super').removeClass('timestwo colorful'); // we can also remove as many class as we want 
 
     </script>
 
