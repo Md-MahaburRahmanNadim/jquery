@@ -2,7 +2,7 @@ $(function () {
   /**
    *   I would like you to write the jquery code for this page to behave as I'm about to show you. When I click on these details button, it should show me the price of the particular book and the Author. And then it also highlights the background yellow. And also hide the button.
    */
-  $("#books_div button").click(function (e) {
+  $("#books_div > .book").on("click", "button", function (e) {
     $(this).parent().css("background-color", "yellow");
     const getPrice = $(this).closest(".book").data("price");
     const getAuthor = $(this).closest(".book").data("author");
@@ -36,7 +36,18 @@ OK, how would I implement that?
 
 explanation with figure is in the docs file
    */
-  $("#books_div").on("click", function (event) {
+  $("div.book").on("click", function (event) {
     alert("Please click on the button to get the details");
   });
+});
+
+$("#books_completed > .book").on("click", "button", function (event) {
+  $(this).parent().css("background-color", "yellow");
+  const purchasedDate = $(this).closest(".book").data("purchased");
+  const getAuthor = $(this).closest(".book").data("author");
+  const rating = $(this).closest(".book").data("myRating");
+
+  const details = `<p>purchased date: ${purchasedDate}</p><p>Author: ${getAuthor}</p> <p>My Rating: ${rating}</p>`;
+  $(this).after(details).remove();
+  event.stopPropagation();
 });
